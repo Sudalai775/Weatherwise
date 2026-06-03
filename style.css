@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 🔴 Prevent horizontal scroll globally */
+html, body {
+    overflow-x: hidden;
+}
+
+:root {
+    --primary: #3b82f6;
+    --primary-dark: #2563eb;
+    --bg: #0f172a;
+    --card: #1e2937;
+    --card-hover: #334155;
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+    --border: #334155;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =================== GLOBAL MEDIA FIX =================== */
+img, iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* =================== HEADER =================== */
+header {
+    background: #1e2937;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+}
+
+nav {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+}
+
+nav ul li a {
+    color: var(--text);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background: var(--primary);
+    color: white;
+}
+
+#theme-toggle {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* =================== MAIN =================== */
+main {
+    width: 100%;
+    max-width: 1280px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    flex: 1;
+}
+
+/* =================== HERO =================== */
+.hero {
+    background: linear-gradient(135deg, #1e2937, #0f172a);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.cta-button {
+    display: inline-block;
+    max-width: 100%;
+    background: var(--primary);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* =================== CARD =================== */
+.card {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    background: var(--card);
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border);
+}
+
+/* =================== WEATHER =================== */
+.search-group {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+#city-input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.8rem;
+}
+
+#search-btn, .geo-btn {
+    padding: 0.8rem 1.2rem;
+    border-radius: 10px;
+}
+
+.geo-btn {
+    width: 100%;
+}
+
+/* =================== WEATHER DISPLAY =================== */
+.weather-main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.temperature {
+    font-size: 3rem;
+}
+
+/* =================== FORECAST =================== */
+.forecast-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+}
+
+/* =================== CHAT =================== */
+#chat-messages {
+    height: 400px;
+    overflow-y: auto;
+}
+
+/* =================== FOOTER =================== */
+footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.8rem;
+}
+
+/* =================== MOBILE FIX =================== */
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;   /* 🔴 FIX */
+        align-items: center;
+        width: 100%;
+    }
+
+    #theme-toggle {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .temperature {
+        font-size: 2.2rem;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    .forecast-container {
+        display: flex;
+        overflow-x: auto;
+    }
+
+    .forecast-container::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* =================== SMALL MOBILE =================== */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.3rem;
+    }
+
+    .temperature {
+        font-size: 2rem;
+    }
+}
