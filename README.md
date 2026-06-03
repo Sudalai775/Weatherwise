@@ -47,8 +47,8 @@ https://predictionweather.iceiy.com/
 Add your screenshots here:
 
 
-![Home Screen](screenshots/home.png)
 
+![Home](https://github.com/Sudalai775/Weatherwise/blob/main/WeatherWise.png?raw=true)
 
 ## 🎯 Project Objective
 
